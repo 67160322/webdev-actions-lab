@@ -1,61 +1,156 @@
-:root {
-  --bg-color: #eef4fb;
-  --card-bg: #ffffff;
-  --text-color: #333333;
-  --primary-color: #1769aa;
-}
-
-body.dark-mode {
-  --bg-color: #1a1a2e;
-  --card-bg: #16213e;
-  --text-color: #eef4fb;
-  --primary-color: #0f3460;
+/* การตั้งค่าพื้นฐาน */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 body {
-  font-family: system-ui, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 20px;
-  transition: background-color 0.3s, color 0.3s;
+  background-color: #f0f4f8;
+  color: #2d3748;
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
+/* แถบเมนูด้านบน (Navigation Bar) */
 header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
-  background-color: var(--card-bg);
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  margin-bottom: 20px;
+  z-index: 100;
+}
+
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 nav a {
-  margin: 0 15px;
-  color: var(--primary-color);
   text-decoration: none;
-  font-weight: bold;
+  color: #4a5568;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+nav a:hover {
+  color: #2b6cb0;
+  background-color: #ebf8ff;
 }
 
-.card {
-  background-color: var(--card-bg);
-  padding: 30px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
+/* ปุ่มตกแต่งทั่วไป */
 button {
-  background-color: var(--primary-color);
+  background-color: #3182ce;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(49, 130, 206, 0.3);
+}
+
+button:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(49, 130, 206, 0.4);
+}
+
+/* พื้นที่จัดวางเนื้อหาหลัก */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* การ์ดแสดงผล (Card Design) */
+.card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  border: 1px solid #e2e8f0;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+}
+
+.card h1, .card h2 {
+  color: #1a202c;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ebf8ff;
+  padding-bottom: 0.5rem;
+}
+
+.card p {
+  margin-bottom: 0.75rem;
+}
+
+.card ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card li {
+  margin-bottom: 0.5rem;
+}
+
+/* ลิงก์ภายในเนื้อหา */
+a {
+  color: #3182ce;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ธีมมืด (Dark Mode Support) */
+body.dark-mode {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+body.dark-mode header {
+  background-color: #2d3748;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode nav a {
+  color: #cbd5e0;
+}
+
+body.dark-mode nav a:hover {
+  color: #63b3ed;
+  background-color: #2c5282;
+}
+
+body.dark-mode .card {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card h1, body.dark-mode .card h2 {
+  color: #ffffff;
+  border-bottom-color: #4a5568;
+}
+
+body.dark-mode a {
+  color: #63b3ed;
 }
